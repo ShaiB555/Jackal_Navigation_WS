@@ -1,0 +1,8 @@
+prefix=/home/shai/Jackal_Navigation_WS/devel
+
+Name: jackal_control
+Description: Description of jackal_control
+Version: 0.8.6
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

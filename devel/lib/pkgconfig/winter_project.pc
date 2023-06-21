@@ -1,0 +1,8 @@
+prefix=/home/shai/Jackal_Navigation_WS/devel
+
+Name: winter_project
+Description: Description of winter_project
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

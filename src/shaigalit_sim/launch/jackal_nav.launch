@@ -1,0 +1,19 @@
+<launch>
+  <!-- Launch world_call.launch with the front_laser configuration -->
+  <include file="$(find shaigalit_sim)/launch/world_call.launch">
+    <arg name="config" value="front_laser" />
+  </include>
+
+  <!-- Delay node for 5 seconds -->
+  <node name="delay_node" pkg="std_msgs" type="sleep" args="100" output="screen" />
+
+  <!-- Run laser_sub.py -->
+  <node name="laser_sub" pkg="shaigalit_sim" type="laser_sub.py" output="screen" />
+
+  <!-- Run control.py -->
+  <node name="control" pkg="shaigalit_sim" type="control.py" output="screen">
+    <!-- <param name="x_d" type="double" value="[[1.0], [2.0], [3.0]]" /> -->
+    <param name="x_d" type="string" value="$(arg x_d)" />
+  </node>
+</launch>
+
