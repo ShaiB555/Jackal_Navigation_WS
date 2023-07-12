@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for clean_test_results_jackal_control.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
 include jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/progress.make
 
 jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control:
-	cd /home/shai/catkin_ws/build/jackal/jackal_control && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/shai/catkin_ws/build/test_results/jackal_control
+	cd /home/shai/Jackal_Navigation_WS/build/jackal/jackal_control && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/shai/catkin_ws/build/test_results/jackal_control
 
 clean_test_results_jackal_control: jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control
 clean_test_results_jackal_control: jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/build.make
@@ -67,10 +67,10 @@ jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/build: cl
 .PHONY : jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/build
 
 jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/clean:
-	cd /home/shai/catkin_ws/build/jackal/jackal_control && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_jackal_control.dir/cmake_clean.cmake
+	cd /home/shai/Jackal_Navigation_WS/build/jackal/jackal_control && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_jackal_control.dir/cmake_clean.cmake
 .PHONY : jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/clean
 
 jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src/jackal/jackal_control /home/shai/catkin_ws/build /home/shai/catkin_ws/build/jackal/jackal_control /home/shai/catkin_ws/build/jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src/jackal/jackal_control /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/jackal/jackal_control /home/shai/Jackal_Navigation_WS/build/jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jackal/jackal_control/CMakeFiles/clean_test_results_jackal_control.dir/depend
 

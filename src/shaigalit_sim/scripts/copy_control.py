@@ -14,11 +14,10 @@ def control_callback(K_pos,K_ori):
     error_init = [[0.0], [0.0], [0.0]]
     x_est_init = [[0.0],[0.0],[0.0]]
     error_int_init = [[0.0], [0.0], [0.0]]
-    x_d=np.array(rospy.get_param("x_d",x_d_init))
+    x_d = x_d_init #rospy.get_param("x_d", x_d_init)
     x_est=np.array(rospy.get_param("x_est",x_est_init))
-    max_v=2
-    max_w=4
-    # Phase_init=True
+    max_v=10
+    max_w=2
 
     #Calculating the time increment from the last iteration to the current time, dt:
     current_time = time.time()
@@ -38,9 +37,7 @@ def control_callback(K_pos,K_ori):
     phi_d=x_d[2,0]
     error_ori_path=angle_diff.angle_diff(theta,phi_est)#theta-phi_est
     error_ori_end=angle_diff.angle_diff(phi_d,phi_est)#phi_d-phi_est
-    # if -np.pi/2<error_ori_path<np.pi/2: sign=1
-    # else: sign=-1
-    error_dist=np.sqrt(error_x[0,0]**2+error_x[1,0]**2)*np.sign(error_x[0,0])
+    error_dist=np.sqrt(error_x[0,0]**2+error_x[1,0]**2)
     error=[[float(error_dist)],[float(error_ori_path)],[float(error_ori_end)]]
     rospy.set_param("error",error)
     error_der=(np.array(error)-np.array(error_prev))/dt
@@ -83,21 +80,22 @@ def control_callback(K_pos,K_ori):
 
 if __name__ == '__main__':
     try:
+
         #PID Values - Position
-        Kp = 3 # Proportional gain
+        Kp = 0.5 # Proportional gain
         Ki = 0.0  # Integral gain
         Kd = 0.0  # Derivative gain
         K_pos=np.array([[Kp],[Ki],[Kd]])
         #PID Values - Orientation
-        Kp = 3  # Proportional gain
+        Kp = 5  # Proportional gain
         Ki = 0.0  # Integral gain
-        Kd = 0.05 # Derivative gain
+        Kd = 0.1 # Derivative gain
         K_ori=np.array([[Kp],[Ki],[Kd]])
         rospy.init_node('jackal_controller')
         at_goal=False
         rospy.set_param("at_goal",at_goal)
         rate = rospy.Rate(50)  # Adjust the rate as per your requirement
-        
+
         # while not at_goal:
         counter=0
         while not rospy.is_shutdown():
@@ -105,8 +103,7 @@ if __name__ == '__main__':
             controller = control_callback(K_pos, K_ori)
             rate.sleep()
             at_goal = rospy.get_param("at_goal")
-            # print(at_goal)
             if at_goal==True and counter>100: break
-
+            
     except rospy.ROSInterruptException:
         pass

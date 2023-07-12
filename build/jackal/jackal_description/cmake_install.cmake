@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/jackal/jackal_description
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/jackal/jackal_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,29 +38,29 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/catkin_ws/build/jackal/jackal_description/catkin_generated/installspace/jackal_description.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_description/catkin_generated/installspace/jackal_description.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_description/cmake" TYPE FILE FILES
-    "/home/shai/catkin_ws/build/jackal/jackal_description/catkin_generated/installspace/jackal_descriptionConfig.cmake"
-    "/home/shai/catkin_ws/build/jackal/jackal_description/catkin_generated/installspace/jackal_descriptionConfig-version.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_description/catkin_generated/installspace/jackal_descriptionConfig.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_description/catkin_generated/installspace/jackal_descriptionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_description" TYPE FILE FILES "/home/shai/catkin_ws/src/jackal/jackal_description/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_description" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_description" TYPE DIRECTORY FILES
-    "/home/shai/catkin_ws/src/jackal/jackal_description/meshes"
-    "/home/shai/catkin_ws/src/jackal/jackal_description/launch"
-    "/home/shai/catkin_ws/src/jackal/jackal_description/urdf"
+    "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes"
+    "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/launch"
+    "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/urdf"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/jackal_description" TYPE PROGRAM FILES "/home/shai/catkin_ws/src/jackal/jackal_description/scripts/env_run")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/jackal_description" TYPE PROGRAM FILES "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/scripts/env_run")
 endif()
 

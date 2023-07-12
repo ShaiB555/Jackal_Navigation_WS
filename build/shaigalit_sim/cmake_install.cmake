@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/shaigalit_sim
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/shaigalit_sim
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/catkin_ws/build/shaigalit_sim/catkin_generated/installspace/shaigalit_sim.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/build/shaigalit_sim/catkin_generated/installspace/shaigalit_sim.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/shaigalit_sim/cmake" TYPE FILE FILES
-    "/home/shai/catkin_ws/build/shaigalit_sim/catkin_generated/installspace/shaigalit_simConfig.cmake"
-    "/home/shai/catkin_ws/build/shaigalit_sim/catkin_generated/installspace/shaigalit_simConfig-version.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/shaigalit_sim/catkin_generated/installspace/shaigalit_simConfig.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/shaigalit_sim/catkin_generated/installspace/shaigalit_simConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/shaigalit_sim" TYPE FILE FILES "/home/shai/catkin_ws/src/shaigalit_sim/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/shaigalit_sim" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/package.xml")
 endif()
 

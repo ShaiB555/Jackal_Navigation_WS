@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for run_tests_jackal_viz_roslaunch-check.
 
@@ -63,10 +63,10 @@ jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/bu
 .PHONY : jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/build
 
 jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/clean:
-	cd /home/shai/catkin_ws/build/jackal_desktop/jackal_viz && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/cmake_clean.cmake
+	cd /home/shai/Jackal_Navigation_WS/build/jackal_desktop/jackal_viz && $(CMAKE_COMMAND) -P CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/cmake_clean.cmake
 .PHONY : jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/clean
 
 jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src/jackal_desktop/jackal_viz /home/shai/catkin_ws/build /home/shai/catkin_ws/build/jackal_desktop/jackal_viz /home/shai/catkin_ws/build/jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src/jackal_desktop/jackal_viz /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/jackal_desktop/jackal_viz /home/shai/Jackal_Navigation_WS/build/jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jackal_desktop/jackal_viz/CMakeFiles/run_tests_jackal_viz_roslaunch-check.dir/depend
 

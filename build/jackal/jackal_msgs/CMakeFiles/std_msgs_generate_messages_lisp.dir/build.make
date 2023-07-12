@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for std_msgs_generate_messages_lisp.
 
@@ -63,10 +63,10 @@ jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build: std_msg
 .PHONY : jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 
 jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	cd /home/shai/catkin_ws/build/jackal/jackal_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
+	cd /home/shai/Jackal_Navigation_WS/build/jackal/jackal_msgs && $(CMAKE_COMMAND) -P CMakeFiles/std_msgs_generate_messages_lisp.dir/cmake_clean.cmake
 .PHONY : jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src/jackal/jackal_msgs /home/shai/catkin_ws/build /home/shai/catkin_ws/build/jackal/jackal_msgs /home/shai/catkin_ws/build/jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src/jackal/jackal_msgs /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/jackal/jackal_msgs /home/shai/Jackal_Navigation_WS/build/jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jackal/jackal_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
 

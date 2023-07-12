@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/jackal_cartographer_navigation
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/jackal_cartographer_navigation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,24 +38,24 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/catkin_ws/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigation.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigation.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_cartographer_navigation/cmake" TYPE FILE FILES
-    "/home/shai/catkin_ws/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigationConfig.cmake"
-    "/home/shai/catkin_ws/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigationConfig-version.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigationConfig.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal_cartographer_navigation/catkin_generated/installspace/jackal_cartographer_navigationConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_cartographer_navigation" TYPE FILE FILES "/home/shai/catkin_ws/src/jackal_cartographer_navigation/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_cartographer_navigation" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/jackal_cartographer_navigation/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_cartographer_navigation" TYPE DIRECTORY FILES
-    "/home/shai/catkin_ws/src/jackal_cartographer_navigation/launch"
-    "/home/shai/catkin_ws/src/jackal_cartographer_navigation/config"
+    "/home/shai/Jackal_Navigation_WS/src/jackal_cartographer_navigation/launch"
+    "/home/shai/Jackal_Navigation_WS/src/jackal_cartographer_navigation/config"
     )
 endif()
 

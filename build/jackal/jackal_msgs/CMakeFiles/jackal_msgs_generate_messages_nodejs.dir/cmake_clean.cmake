@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "/home/shai/catkin_ws/devel/share/gennodejs/ros/jackal_msgs/msg/Drive.js"
-  "/home/shai/catkin_ws/devel/share/gennodejs/ros/jackal_msgs/msg/DriveFeedback.js"
-  "/home/shai/catkin_ws/devel/share/gennodejs/ros/jackal_msgs/msg/Feedback.js"
-  "/home/shai/catkin_ws/devel/share/gennodejs/ros/jackal_msgs/msg/Status.js"
+  "/home/shai/Jackal_Navigation_WS/devel/share/gennodejs/ros/jackal_msgs/msg/Drive.js"
+  "/home/shai/Jackal_Navigation_WS/devel/share/gennodejs/ros/jackal_msgs/msg/DriveFeedback.js"
+  "/home/shai/Jackal_Navigation_WS/devel/share/gennodejs/ros/jackal_msgs/msg/Feedback.js"
+  "/home/shai/Jackal_Navigation_WS/devel/share/gennodejs/ros/jackal_msgs/msg/Status.js"
   "CMakeFiles/jackal_msgs_generate_messages_nodejs"
 )
 

@@ -364,7 +364,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-base.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-base.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -379,7 +379,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-fender.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-fender.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -394,7 +394,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/sick-lms1xx-upright-bracket.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/sick-lms1xx-upright-bracket.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -433,7 +433,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-fender.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-fender.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -547,7 +547,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -625,7 +625,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -703,7 +703,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
             </mesh>
           </geometry>
           <material>
@@ -781,7 +781,7 @@
           <geometry>
             <mesh>
               <scale>1 1 1</scale>
-              <uri>/home/shai/Jackal_Navigation_WS/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
+              <uri>/home/shai/catkin_ws/src/jackal/jackal_description/meshes/jackal-wheel.stl</uri>
             </mesh>
           </geometry>
           <material>

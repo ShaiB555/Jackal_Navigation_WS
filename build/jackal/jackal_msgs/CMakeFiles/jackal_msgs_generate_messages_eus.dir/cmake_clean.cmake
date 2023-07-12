@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/shai/catkin_ws/devel/share/roseus/ros/jackal_msgs/manifest.l"
-  "/home/shai/catkin_ws/devel/share/roseus/ros/jackal_msgs/msg/Drive.l"
-  "/home/shai/catkin_ws/devel/share/roseus/ros/jackal_msgs/msg/DriveFeedback.l"
-  "/home/shai/catkin_ws/devel/share/roseus/ros/jackal_msgs/msg/Feedback.l"
-  "/home/shai/catkin_ws/devel/share/roseus/ros/jackal_msgs/msg/Status.l"
+  "/home/shai/Jackal_Navigation_WS/devel/share/roseus/ros/jackal_msgs/manifest.l"
+  "/home/shai/Jackal_Navigation_WS/devel/share/roseus/ros/jackal_msgs/msg/Drive.l"
+  "/home/shai/Jackal_Navigation_WS/devel/share/roseus/ros/jackal_msgs/msg/DriveFeedback.l"
+  "/home/shai/Jackal_Navigation_WS/devel/share/roseus/ros/jackal_msgs/msg/Feedback.l"
+  "/home/shai/Jackal_Navigation_WS/devel/share/roseus/ros/jackal_msgs/msg/Status.l"
   "CMakeFiles/jackal_msgs_generate_messages_eus"
 )
 

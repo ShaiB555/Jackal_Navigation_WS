@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for clean_test_results_jackal_gazebo.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
 include jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/progress.make
 
 jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo:
-	cd /home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/shai/catkin_ws/build/test_results/jackal_gazebo
+	cd /home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo && /usr/bin/python3 /opt/ros/noetic/share/catkin/cmake/test/remove_test_results.py /home/shai/catkin_ws/build/test_results/jackal_gazebo
 
 clean_test_results_jackal_gazebo: jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo
 clean_test_results_jackal_gazebo: jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/build.make
@@ -67,10 +67,10 @@ jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/b
 .PHONY : jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/build
 
 jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/clean:
-	cd /home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_jackal_gazebo.dir/cmake_clean.cmake
+	cd /home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo && $(CMAKE_COMMAND) -P CMakeFiles/clean_test_results_jackal_gazebo.dir/cmake_clean.cmake
 .PHONY : jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/clean
 
 jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo /home/shai/catkin_ws/build /home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo /home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo /home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jackal_simulator/jackal_gazebo/CMakeFiles/clean_test_results_jackal_gazebo.dir/depend
 

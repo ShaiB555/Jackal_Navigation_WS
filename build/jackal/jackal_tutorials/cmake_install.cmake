@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/jackal/jackal_tutorials
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/jackal/jackal_tutorials
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/catkin_ws/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorials.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorials.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_tutorials/cmake" TYPE FILE FILES
-    "/home/shai/catkin_ws/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorialsConfig.cmake"
-    "/home/shai/catkin_ws/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorialsConfig-version.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorialsConfig.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal/jackal_tutorials/catkin_generated/installspace/jackal_tutorialsConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_tutorials" TYPE FILE FILES "/home/shai/catkin_ws/src/jackal/jackal_tutorials/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_tutorials" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/jackal/jackal_tutorials/package.xml")
 endif()
 

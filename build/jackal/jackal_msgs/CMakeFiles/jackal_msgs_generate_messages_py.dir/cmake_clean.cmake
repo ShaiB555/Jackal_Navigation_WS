@@ -1,9 +1,9 @@
 file(REMOVE_RECURSE
-  "/home/shai/catkin_ws/devel/lib/python3/dist-packages/jackal_msgs/msg/_Drive.py"
-  "/home/shai/catkin_ws/devel/lib/python3/dist-packages/jackal_msgs/msg/_DriveFeedback.py"
-  "/home/shai/catkin_ws/devel/lib/python3/dist-packages/jackal_msgs/msg/_Feedback.py"
-  "/home/shai/catkin_ws/devel/lib/python3/dist-packages/jackal_msgs/msg/_Status.py"
-  "/home/shai/catkin_ws/devel/lib/python3/dist-packages/jackal_msgs/msg/__init__.py"
+  "/home/shai/Jackal_Navigation_WS/devel/lib/python3/dist-packages/jackal_msgs/msg/_Drive.py"
+  "/home/shai/Jackal_Navigation_WS/devel/lib/python3/dist-packages/jackal_msgs/msg/_DriveFeedback.py"
+  "/home/shai/Jackal_Navigation_WS/devel/lib/python3/dist-packages/jackal_msgs/msg/_Feedback.py"
+  "/home/shai/Jackal_Navigation_WS/devel/lib/python3/dist-packages/jackal_msgs/msg/_Status.py"
+  "/home/shai/Jackal_Navigation_WS/devel/lib/python3/dist-packages/jackal_msgs/msg/__init__.py"
   "CMakeFiles/jackal_msgs_generate_messages_py"
 )
 

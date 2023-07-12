@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/shai/catkin_ws/src
-# Build directory: /home/shai/catkin_ws/build
+# Source directory: /home/shai/Jackal_Navigation_WS/src
+# Build directory: /home/shai/Jackal_Navigation_WS/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -16,4 +16,3 @@ subdirs("jackal_simulator/jackal_gazebo")
 subdirs("jackal/jackal_navigation")
 subdirs("jackal_desktop/jackal_viz")
 subdirs("shaigalit_sim")
-subdirs("SLAM-with-Velodyne-Lidar-and-Jackal-UGV")

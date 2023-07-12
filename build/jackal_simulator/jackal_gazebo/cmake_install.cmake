@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,25 +38,25 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazebo.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazebo.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_gazebo/cmake" TYPE FILE FILES
-    "/home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazeboConfig.cmake"
-    "/home/shai/catkin_ws/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazeboConfig-version.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazeboConfig.cmake"
+    "/home/shai/Jackal_Navigation_WS/build/jackal_simulator/jackal_gazebo/catkin_generated/installspace/jackal_gazeboConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_gazebo" TYPE FILE FILES "/home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_gazebo" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_gazebo" TYPE DIRECTORY FILES
-    "/home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo/launch"
-    "/home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo/Media"
-    "/home/shai/catkin_ws/src/jackal_simulator/jackal_gazebo/worlds"
+    "/home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo/launch"
+    "/home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo/Media"
+    "/home/shai/Jackal_Navigation_WS/src/jackal_simulator/jackal_gazebo/worlds"
     )
 endif()
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/shai/catkin_ws/src/jackal_desktop/jackal_desktop
+# Install script for directory: /home/shai/Jackal_Navigation_WS/src/jackal_desktop/jackal_desktop
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/shai/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/shai/Jackal_Navigation_WS/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_desktop" TYPE FILE FILES "/home/shai/catkin_ws/src/jackal_desktop/jackal_desktop/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/jackal_desktop" TYPE FILE FILES "/home/shai/Jackal_Navigation_WS/src/jackal_desktop/jackal_desktop/package.xml")
 endif()
 

@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src /home/shai/catkin_ws/build /home/shai/catkin_ws/build /home/shai/catkin_ws/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

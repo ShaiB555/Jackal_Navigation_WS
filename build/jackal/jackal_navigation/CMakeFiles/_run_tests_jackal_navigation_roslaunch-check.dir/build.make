@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/shai/catkin_ws/src
+CMAKE_SOURCE_DIR = /home/shai/Jackal_Navigation_WS/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/shai/catkin_ws/build
+CMAKE_BINARY_DIR = /home/shai/Jackal_Navigation_WS/build
 
 # Utility rule file for _run_tests_jackal_navigation_roslaunch-check.
 
@@ -63,10 +63,10 @@ jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check
 .PHONY : jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/build
 
 jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/clean:
-	cd /home/shai/catkin_ws/build/jackal/jackal_navigation && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/cmake_clean.cmake
+	cd /home/shai/Jackal_Navigation_WS/build/jackal/jackal_navigation && $(CMAKE_COMMAND) -P CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/cmake_clean.cmake
 .PHONY : jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/clean
 
 jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/depend:
-	cd /home/shai/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/catkin_ws/src /home/shai/catkin_ws/src/jackal/jackal_navigation /home/shai/catkin_ws/build /home/shai/catkin_ws/build/jackal/jackal_navigation /home/shai/catkin_ws/build/jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/shai/Jackal_Navigation_WS/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/shai/Jackal_Navigation_WS/src /home/shai/Jackal_Navigation_WS/src/jackal/jackal_navigation /home/shai/Jackal_Navigation_WS/build /home/shai/Jackal_Navigation_WS/build/jackal/jackal_navigation /home/shai/Jackal_Navigation_WS/build/jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : jackal/jackal_navigation/CMakeFiles/_run_tests_jackal_navigation_roslaunch-check.dir/depend
 

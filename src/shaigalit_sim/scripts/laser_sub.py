@@ -37,51 +37,43 @@ def callback(data):
 
     #IDENTIFYING EACH VISIBLE BEACON BASED ON KNOWN RADIUS AND COLLECTING IN THE VECTOR beacons_rel
     for i in range(len(results)):
-        x0=results[i,0]
+        x0=results[i,0]+0.12 #0.12m is the distance from the robot COM and the LIDAR
         y0=results[i,1]
         R=abs(results[i,2])
 
         if beacons_rad[0]-error<R<beacons_rad[0]+error:
             beacon1_rel=np.array([[x0],[y0]])
-            print(f"Beacon 1 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
+            # print(f"Beacon 1 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
             beacons_visible[0]=True
 
         if beacons_rad[1]-error<R<beacons_rad[1]+error:
             beacon2_rel=np.array([[x0],[y0]])
-            print(f"Beacon 2 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
+            # print(f"Beacon 2 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
             beacons_visible[1]=True
 
         if beacons_rad[2]-error<R<beacons_rad[2]+error:
             beacon3_rel=np.array([[x0],[y0]])
-            print(f"Beacon 3 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
+            # print(f"Beacon 3 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
             beacons_visible[2]=True
 
         if beacons_rad[3]-error<R<beacons_rad[3]+error:
             beacon4_rel=np.array([[x0],[y0]])
-            print(f"Beacon 4 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
+            # print(f"Beacon 4 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
             beacons_visible[3]=True           
         
-    if beacons_visible[0]==False:
-        print("Beacon 1 not found!")
-    else:
+    if beacons_visible[0]==True:
         beacons_rel=np.vstack((beacons_rel,beacon1_rel))
         beacons_pos_vis=np.vstack((beacons_pos_vis,beacon1_pos))
 
-    if beacons_visible[1]==False:
-        print("Beacon 2 not found!")
-    else:
+    if beacons_visible[1]==True:
         beacons_rel=np.vstack((beacons_rel,beacon2_rel))
         beacons_pos_vis=np.vstack((beacons_pos_vis,beacon2_pos))
 
-    if beacons_visible[2]==False:
-        print("Beacon 3 not found!")
-    else:
+    if beacons_visible[2]==True:
         beacons_rel=np.vstack((beacons_rel,beacon3_rel))
         beacons_pos_vis=np.vstack((beacons_pos_vis,beacon3_pos))
 
-    if beacons_visible[3]==False:
-        print("Beacon 4 not found!")
-    else:
+    if beacons_visible[3]==True:
         beacons_rel=np.vstack((beacons_rel,beacon4_rel))
         beacons_pos_vis=np.vstack((beacons_pos_vis,beacon4_pos))
     
@@ -98,18 +90,15 @@ def callback(data):
     #GETTING THE CONTROL SIGNAL u
     u=np.array(rospy.get_param("u",u_init))
 
-    print("BEFORE!")
-    # rospy.set_param("x_est",x_est_init)
-    # rospy.set_param("sigma",sigma_init)
-
+    # print("BEFORE!")
     x_est=rospy.get_param("x_est",x_est_init)
     x_est=np.array(x_est)
     sigma=rospy.get_param("sigma",sigma_init)
     sigma=np.array(sigma)
-    print(x_est)
+    # print(x_est)
     x_est, sigma=EKF.EKF(x_est,sigma,u,beacons_rel,beacons_pos_vis,dt)
-    print("AFTER!")
-    print(x_est)
+    # print("AFTER!")
+    # print(x_est)
     x_est=x_est.tolist()
     rospy.set_param("x_est",x_est)
     sigma=sigma.tolist()

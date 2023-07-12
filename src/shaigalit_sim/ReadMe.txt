@@ -1,5 +1,5 @@
 USEFUL TERMINAL COMMANDS:
-cd catkin_ws
+cd Jackal_Navigation_WS
 conda deactivate
 source devel/setup.bash
 catkin_make
