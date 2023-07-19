@@ -14,3 +14,5 @@ import angle_diff
 alpha=1*np.pi
 beta=(1/4)*np.pi
 print(angle_diff.angle_diff(alpha,beta))
+
+print(np.eye(3))

@@ -12,7 +12,7 @@
 
   <!-- Run control.py -->
   <node name="control" pkg="shaigalit_sim" type="control.py" output="screen">
-    <param name="x_d" type="string" value="[[1.0],[2.0],[3.0]]" />
+    <!-- <param name="x_d" type="string" value="[[1.0],[2.0],[3.0]]" /> -->
     <!-- <param name="x_d" type="string" value="$(arg x_d)" /> -->
   </node>
 </launch>
