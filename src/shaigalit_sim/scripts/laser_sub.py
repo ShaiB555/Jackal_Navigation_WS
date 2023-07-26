@@ -34,6 +34,19 @@ def callback(data):
     beacons_pos_vis=np.array([0]) #ENABLING VSTACK OF TRUE POSITION OF VISIBLE BEACONS
     error=0.01
     beacons_rel=np.array([0]) #ENABLING VSTACK OF RELATIVE POSITION OF VISIBLE BEACONS
+    
+    #Calculating distance from obstacles in front and back side
+    collision_dist=100000000*[1,1]
+    for i in range(len(ranges)):
+        temp=ranges[i]
+        alpha=angle_min+i*angle_increment
+        if abs(alpha)<1:
+            if temp<abs(collision_dist[0]):
+                collision_dist[0]=-temp*np.sign(alpha)
+        if abs(alpha)>np.pi-1:
+            if temp<abs(collision_dist[1]):
+                collision_dist[1]=temp*np.sign(alpha)
+    rospy.set_param("collision_dist",collision_dist)
 
     #IDENTIFYING EACH VISIBLE BEACON BASED ON KNOWN RADIUS AND COLLECTING IN THE VECTOR beacons_rel
     for i in range(len(results)):
