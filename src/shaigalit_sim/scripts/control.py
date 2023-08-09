@@ -25,7 +25,7 @@ def control_callback(cont_law):
     K_end=np.array([[1],[0.0],[0.1]])
     
     #Initial values
-    x_d_init = [[0.0], [0.0], [0.0]]
+    x_d_init = [[2.0], [0.0], [0.0]]
     error_init = [[0.0], [0.0], [0.0]]
     x_est_init = [[0.0],[0.0],[0.0]]
     error_int_init = [[0.0], [0.0], [0.0]]
@@ -106,7 +106,6 @@ def control_callback(cont_law):
             v=0
             w=0
             rospy.set_param("at_goal",True)
-            print("DESTINATION REACHED! TIME TO PARTY :)")
 
     #Calculating matrices with previous u
     
@@ -137,7 +136,6 @@ def control_callback(cont_law):
             v=0
             w=0
             rospy.set_param("at_goal",True)
-            print("DESTINATION REACHED! TIME TO PARTY :)")
 
     
     #MPC Control Law
@@ -220,15 +218,18 @@ def control_callback(cont_law):
             v=0
             w=0
             rospy.set_param("at_goal",True)
-            print("DESTINATION REACHED! TIME TO PARTY :)")
 
     #Avoiding obstacles
     collision_dist=rospy.get_param("collision_dist",100000000*[1,1])
-    Kc=0.1
-    if v>0:
-        w=w+Kc/(collision_dist[0]+0.0001)
-    if v<0:
-        w=w+Kc/(collision_dist[1]+0.0001)
+    Kc=0.5
+    if v>0 and abs(collision_dist[0])<1:
+        v=0.001*v
+        print("OBSTACLE DETECTED!")
+        w=Kc/(collision_dist[0]+0.000001)
+    if v<0 and abs(collision_dist[1])<1:
+        v=0.001*v
+        print("OBSTACLE DETECTED!")
+        w=Kc/(collision_dist[1]+0.000001)
 
 
     #Setting and saving the control inputs
@@ -257,12 +258,18 @@ if __name__ == '__main__':
         # while not at_goal:
         counter=0
         while not rospy.is_shutdown():
-            counter+=1
+            # counter+=1
             controller = control_callback(cont_law)
             rate.sleep()
             at_goal = rospy.get_param("at_goal")
             # print(at_goal)
-            if at_goal==True and counter>100: break
+            # if at_goal==True and counter>100: break
+            if at_goal==True:
+                counter+=1
+                if counter>10: 
+                    print("GOAL IS REACHED, TIME TO PARTY :)")
+                    break
+
 
     except rospy.ROSInterruptException:
         pass

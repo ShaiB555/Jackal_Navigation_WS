@@ -12,12 +12,12 @@ import time
 def callback(data):
     
     #KNOWN BEACON POSITIONS AND RADII
-    beacon1_pos=np.array([[6],[6]])
-    beacon2_pos=np.array([[-6],[-6]])
-    beacon3_pos=np.array([[-6],[6]])
-    beacon4_pos=np.array([[6],[-6]])
-    # beacons_pos_all=np.array([[6],[6],[-6],[-6],[-6],[6],[6],[-6]])
-    beacons_rad=np.array([0.25,0.31,0.46,0.54])
+    beacon1_pos=np.array([[0],[0]])
+    beacon2_pos=np.array([[6],[6]])
+    beacon3_pos=np.array([[-6],[-6]])
+    beacon4_pos=np.array([[-6],[6]])
+    beacon5_pos=np.array([[6],[-6]])
+    beacons_rad=np.array([0.15,0.25,0.31,0.46,0.54])
     
     #INITIAL GUESS FOR KALMAN FILTER
     x_est_init=[[0],[0],[0]]
@@ -30,23 +30,28 @@ def callback(data):
     angle_max = data.angle_max
     angle_increment = data.angle_increment
     results=circle_find.circles(ranges,angle_min,angle_max,angle_increment)
-    beacons_visible=np.array([False,False,False,False])
+    beacons_visible=np.array([False,False,False,False,False,False,False,False,False])
     beacons_pos_vis=np.array([0]) #ENABLING VSTACK OF TRUE POSITION OF VISIBLE BEACONS
     error=0.01
     beacons_rel=np.array([0]) #ENABLING VSTACK OF RELATIVE POSITION OF VISIBLE BEACONS
+
     
     #Calculating distance from obstacles in front and back side
-    collision_dist=100000000*[1,1]
-    for i in range(len(ranges)):
-        temp=ranges[i]
-        alpha=angle_min+i*angle_increment
-        if abs(alpha)<1:
-            if temp<abs(collision_dist[0]):
-                collision_dist[0]=-temp*np.sign(alpha)
-        if abs(alpha)>np.pi-1:
-            if temp<abs(collision_dist[1]):
-                collision_dist[1]=temp*np.sign(alpha)
-    rospy.set_param("collision_dist",collision_dist)
+    collision_dist=100000000*np.array([1.0,1.0])
+
+    if abs(np.min(ranges))<1:
+        for i in range(len(ranges)):
+            temp=ranges[i]
+            alpha=angle_min+i*angle_increment
+            if abs(alpha)<1:
+                if temp<abs(collision_dist[0]):
+                    collision_dist[0]=-temp*np.sign(alpha)
+            if abs(alpha)>np.pi-1:
+                if temp<abs(collision_dist[1]):
+                    collision_dist[1]=temp*np.sign(alpha)
+
+    rospy.set_param("collision_dist",collision_dist.tolist())
+
 
     #IDENTIFYING EACH VISIBLE BEACON BASED ON KNOWN RADIUS AND COLLECTING IN THE VECTOR beacons_rel
     for i in range(len(results)):
@@ -72,7 +77,12 @@ def callback(data):
         if beacons_rad[3]-error<R<beacons_rad[3]+error:
             beacon4_rel=np.array([[x0],[y0]])
             # print(f"Beacon 4 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
-            beacons_visible[3]=True           
+            beacons_visible[3]=True
+
+        if beacons_rad[4]-error<R<beacons_rad[4]+error:
+            beacon5_rel=np.array([[x0],[y0]])
+            # print(f"Beacon 4 of radius "+str(R)+" at ("+str(x0)+","+str(y0)+")")
+            beacons_visible[4]=True
         
     if beacons_visible[0]==True:
         beacons_rel=np.vstack((beacons_rel,beacon1_rel))
@@ -89,6 +99,10 @@ def callback(data):
     if beacons_visible[3]==True:
         beacons_rel=np.vstack((beacons_rel,beacon4_rel))
         beacons_pos_vis=np.vstack((beacons_pos_vis,beacon4_pos))
+
+    if beacons_visible[4]==True:
+        beacons_rel=np.vstack((beacons_rel,beacon5_rel))
+        beacons_pos_vis=np.vstack((beacons_pos_vis,beacon5_pos))
     
     beacons_rel=np.delete(beacons_rel, 0, axis=0) #REMOVING THE ORIGINAL LINE OF ZEROS
     beacons_pos_vis=np.delete(beacons_pos_vis, 0, axis=0) #REMOVING THE ORIGINAL LINE OF ZEROS
