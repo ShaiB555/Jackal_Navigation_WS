@@ -3,7 +3,7 @@ cd Jackal_Navigation_WS
 conda deactivate
 source devel/setup.bash
 catkin_make
-roslaunch shaigalit_sim jackal_nav.launch x_d:="[[0.0],[0.0],[0.0]]"
+roslaunch shaigalit_sim jackal_nav.launch
 
 
 
@@ -21,8 +21,3 @@ Finish the EKF:
 **after a while there is a singularity due to division by zero in H_calc and theta calculation (somewhere) iside the arctan of theta, meaning that xb=xr which makes no sense unless the robot is in the same place as the beacon (it isn't)
 find the Jacobian of the measurments - H. Try using a function that calculates the Jacobian (symbolic???)
 
-Beacons:
-0.25 - (6,6)
-0.31 - (-6,-6)
-0.46 - (-6,6)
-0.54 - (6,-6)

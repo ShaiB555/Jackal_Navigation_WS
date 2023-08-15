@@ -88,7 +88,7 @@ def control_callback(cont_law):
 
     if cont_law=="PID":
 
-        if abs(error_dist)>0.1: #path to goal
+        if abs(error_dist)>0.3: #path to goal
             rospy.set_param("at_goal",False)
             # if abs(error_ori_path)<0.05:
             v = K_pos[0,0]*error[0,0]+K_pos[1,0]*error_int[0,0]+K_pos[2,0]*error_der[0,0]
@@ -132,7 +132,7 @@ def control_callback(cont_law):
         v=u[0,0]
         w=u[1,0]
 
-        if abs(error_dist)<0.1 and abs(error_ori_end)<0.1:
+        if abs(error_dist)<0.3 and abs(error_ori_end)<0.1:
             v=0
             w=0
             rospy.set_param("at_goal",True)
@@ -214,7 +214,7 @@ def control_callback(cont_law):
             v=u[0,0]
             w=u[1,0]
 
-        if abs(error_dist)<0.1 and abs(error_ori_end)<0.1:
+        if abs(error_dist)<0.3 and abs(error_ori_end)<0.1:
             v=0
             w=0
             rospy.set_param("at_goal",True)
