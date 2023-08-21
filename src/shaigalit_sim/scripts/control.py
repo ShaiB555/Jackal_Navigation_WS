@@ -25,7 +25,7 @@ def control_callback(cont_law):
     K_end=np.array([[1],[0.0],[0.1]])
     
     #Initial values
-    x_d_init = [[2.0], [0.0], [0.0]]
+    x_d_init = [[3.0], [3.0], [0.0]]
     error_init = [[0.0], [0.0], [0.0]]
     x_est_init = [[0.0],[0.0],[0.0]]
     error_int_init = [[0.0], [0.0], [0.0]]
@@ -141,6 +141,17 @@ def control_callback(cont_law):
     #MPC Control Law
     
     if cont_law=="MPC":
+        
+        # Save the original standard output and standard error streams
+        original_stdout = sys.stdout
+        original_stderr = sys.stderr
+
+        # Redirect standard output and standard error to a file
+        
+        output_file_path = '/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/MPC_Output/output.txt'
+        output_file = open(output_file_path, 'w')
+        sys.stdout = output_file
+        sys.stderr = output_file
 
         symvar_type='SX'
         """
@@ -218,15 +229,21 @@ def control_callback(cont_law):
             v=0
             w=0
             rospy.set_param("at_goal",True)
+        
+        # Close the output file and restore the original streams
+        sys.stdout = original_stdout
+        sys.stderr = original_stderr
+        output_file.close()
+
 
     #Avoiding obstacles
     collision_dist=rospy.get_param("collision_dist",100000000*[1,1])
     Kc=0.5
-    if v>0 and abs(collision_dist[0])<1:
+    if v>0 and abs(collision_dist[0])<0.5:
         v=0.001*v
         print("OBSTACLE DETECTED!")
         w=Kc/(collision_dist[0]+0.000001)
-    if v<0 and abs(collision_dist[1])<1:
+    if v<0 and abs(collision_dist[1])<0.5:
         v=0.001*v
         print("OBSTACLE DETECTED!")
         w=Kc/(collision_dist[1]+0.000001)
@@ -248,7 +265,7 @@ def control_callback(cont_law):
 
 if __name__ == '__main__':
     try:
-        cont_law="LQR"
+        cont_law="PID"
         time.sleep(3)
         rospy.init_node('jackal_controller')
         at_goal=False

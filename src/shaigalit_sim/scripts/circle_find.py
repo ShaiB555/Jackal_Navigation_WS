@@ -6,6 +6,22 @@ import matplotlib.pyplot as plt
 def circ(pos,x0,y0,R):
     return (pos[0]-x0)**2+(pos[1]-y0)**2-R**2
 
+def R_sqaured(popt,pcov,x_data, y_data):
+
+    # Calculate the residuals (difference between data and fitted values)
+    residuals = circ((x_data, y_data), popt[0], popt[1], popt[2])
+
+    # Calculate the total sum of squares (TSS)
+    tss = np.sum((x_data - np.mean(x_data))**2 + (y_data - np.mean(y_data))**2)
+
+    # Calculate the sum of squared residuals (RSS) from the circle fit
+    rss = np.sum(residuals**2)
+
+    # Calculate the R-squared value
+    r_squared = 1 - (rss / tss)
+
+    return r_squared
+
 def circles(ranges,angle_min,angle_max,angle_increment):
     #Sensor angle alpha
     N=np.size(ranges)
@@ -30,7 +46,8 @@ def circles(ranges,angle_min,angle_max,angle_increment):
                     try:
                         popt, _ = curve_fit(circ, (x_data, y_data),np.zeros_like(x_data))
                         popt[2]=abs(popt[2])
-                        if popt[2]<1:
+                        R2=R_sqaured(popt,_,x_data, y_data)
+                        if popt[2]<1 and R2>0.999: #filtering out objects with radius larger than 1m (largest beacon is 0.54m radius)
                             results=np.vstack((results,popt))
                     except ValueError:
                         pass
@@ -50,7 +67,8 @@ def circles(ranges,angle_min,angle_max,angle_increment):
             try:
                 popt, _ = curve_fit(circ, (x_data, y_data),np.zeros_like(x_data))
                 popt[2]=abs(popt[2])
-                if popt[2]<1:
+                R2=R_sqaured(popt,_,x_data, y_data)
+                if popt[2]<1 and R2>0.999: #filtering out objects with radius larger than 1m (largest beacon is 0.54m radius)
                     results=np.vstack((results,popt))
             except ValueError:
                 pass
