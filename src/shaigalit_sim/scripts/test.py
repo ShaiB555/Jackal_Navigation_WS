@@ -84,3 +84,10 @@ print(x_est)
 
 
 # %%
+import numpy as np
+
+a= [[1],[2],[3]]
+b= [[1],[2],[3]]
+c=np.hstack((a,b))
+print(c)
+# %%

@@ -5,13 +5,41 @@ from geometry_msgs.msg import Twist
 import time
 import angle_diff
 import sys_mat
-import scipy
-import pdb
 import sys
 sys.path.append('../../')
 import do_mpc
 from casadi import *
 from casadi.tools import *
+from gazebo_msgs.msg import ModelStates
+import tf
+
+def model_states_callback(data):
+    model_names = data.name
+    jackal_index = model_names.index('jackal')  # 'jackal' is the model name in Gazebo
+    robot_pose = data.pose[jackal_index]
+    x_real_vec=rospy.get_param("x_real_vec",[[0.0],[0.0],[0.0]])
+    
+    x = robot_pose.position.x
+    y = robot_pose.position.y
+    
+    # Extract orientation as a quaternion
+    quaternion = (
+        robot_pose.orientation.x,
+        robot_pose.orientation.y,
+        robot_pose.orientation.z,
+        robot_pose.orientation.w
+    )
+    # Convert quaternion to Euler angles
+    euler = tf.transformations.euler_from_quaternion(quaternion)
+    roll, pitch, yaw = euler
+
+    print(yaw)
+
+    #Appending new state to saved vector
+    x_real = [[x], [y], [yaw]]
+    x_real_vec=np.hstack((x_real_vec,x_real))
+    x_real_vec=x_real_vec.tolist()
+    rospy.set_param("x_real_vec",x_real_vec)
 
 def control_callback(cont_law):
 
@@ -30,7 +58,12 @@ def control_callback(cont_law):
     x_est_init = [[0.0],[0.0],[0.0]]
     error_int_init = [[0.0], [0.0], [0.0]]
     x_d=np.array(rospy.get_param("x_d",x_d_init))
-    x_est=np.array(rospy.get_param("x_est",x_est_init))
+    x_est=rospy.get_param("x_est",x_est_init)
+    x_est_vec=rospy.get_param("x_est_vec",[[0.0],[0.0],[0.0]])
+    x_est_vec=np.hstack((x_est_vec,x_est))
+    x_est_vec=x_est_vec.tolist()
+    rospy.set_param("x_est_vec",x_est_vec)
+    x_est=np.array(x_est)
     max_v=2
     max_w=4
     # Phase_init=True
@@ -40,6 +73,10 @@ def control_callback(cont_law):
     last_time=rospy.get_param("cont_last_time",0)
     dt = current_time - last_time
     rospy.set_param("cont_last_time",current_time)
+    time_vec=rospy.get_param("time_vec",[0.0])
+    time_vec.append(current_time)
+    rospy.set_param("time_vec",time_vec)
+    
 
     # Errors calculation
     error_prev = rospy.get_param("error",error_init)
@@ -70,12 +107,6 @@ def control_callback(cont_law):
     R_lqr=1*np.diag([1,np.pi/20])
     maxiter=150
     eps=0.001
-
-    # #LQR parameters
-    # Q_lqr=100*np.diag([abs(error_state[0,0]),abs(error_state[1,0]),np.pi/10*(0.1*abs(error_ori_path)+abs(error_ori_end))])#*abs(error_dist)
-    # R_lqr=0.1*np.diag([abs(error_dist),np.pi*(abs(error_ori_path)+abs(error_ori_end))])
-    # maxiter=150
-    # eps=0.001
 
     # Errors calculation
     error=np.array(error)
@@ -265,8 +296,12 @@ def control_callback(cont_law):
 
 if __name__ == '__main__':
     try:
-        cont_law="PID"
+
+        #Control parameters
+        cont_law="LQR"
         time.sleep(3)
+        # Initialize ROS node for real position and control
+        # rospy.init_node('gazebo_robot_position_listener', anonymous=True)
         rospy.init_node('jackal_controller')
         at_goal=False
         rospy.set_param("at_goal",at_goal)
@@ -275,6 +310,8 @@ if __name__ == '__main__':
         # while not at_goal:
         counter=0
         while not rospy.is_shutdown():
+            # Subscribe to the model_states topic
+            rospy.Subscriber('/gazebo/model_states', ModelStates, model_states_callback)
             # counter+=1
             controller = control_callback(cont_law)
             rate.sleep()
