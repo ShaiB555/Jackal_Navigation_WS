@@ -11,10 +11,38 @@ import do_mpc
 from casadi import *
 from casadi.tools import *
 from gazebo_msgs.msg import ModelStates
-from gazebo_msgs.srv import GetModelState
 import tf
 
+def model_states_callback(data):
+    model_names = data.name
+    jackal_index = model_names.index('jackal')  # 'jackal' is the model name in Gazebo
+    robot_pose = data.pose[jackal_index]
+    x_real_vec=rospy.get_param("x_real_vec",[[0.0],[0.0],[0.0]])
+    
+    x = robot_pose.position.x
+    y = robot_pose.position.y
+    
+    # Extract orientation as a quaternion
+    quaternion = (
+        robot_pose.orientation.x,
+        robot_pose.orientation.y,
+        robot_pose.orientation.z,
+        robot_pose.orientation.w
+    )
+    # Convert quaternion to Euler angles
+    euler = tf.transformations.euler_from_quaternion(quaternion)
+    roll, pitch, yaw = euler
+
+    #Appending new state to saved vector
+    x_real = [[x], [y], [yaw]]
+    print(x_real)
+    x_real_vec=np.hstack((x_real_vec,x_real))
+    x_real_vec=x_real_vec.tolist()
+    rospy.set_param("x_real_vec",x_real_vec)
+
 def control_callback(cont_law):
+
+    rospy.init_node('jackal_controller')
     
     #PID Values - Position [Kp,Ki,Kd]
     K_pos=np.array([[3],[0],[0]])
@@ -37,29 +65,7 @@ def control_callback(cont_law):
     x_est=np.array(x_est)
     max_v=2
     max_w=4
-
-    #Getting the real robot position from Gazebo
-    model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-    robot_pose = model_coordinates('jackal', 'Models.jackal').pose
-    x_real_vec=rospy.get_param("x_real_vec",[[0.0],[0.0],[0.0]])
-    x = robot_pose.position.x
-    y = robot_pose.position.y
-    # Extract orientation as a quaternion
-    quaternion = (
-        robot_pose.orientation.x,
-        robot_pose.orientation.y,
-        robot_pose.orientation.z,
-        robot_pose.orientation.w
-    )
-    # Convert quaternion to Euler angles
-    euler = tf.transformations.euler_from_quaternion(quaternion)
-    roll, pitch, yaw = euler
-    #Appending new state to saved vector
-    x_real = [[x], [y], [yaw]]
-    # print(x_real)
-    x_real_vec=np.hstack((x_real_vec,x_real))
-    x_real_vec=x_real_vec.tolist()
-    rospy.set_param("x_real_vec",x_real_vec)
+    # Phase_init=True
 
     #Calculating the time increment from the last iteration to the current time, dt:
     current_time = time.time()
@@ -294,16 +300,23 @@ if __name__ == '__main__':
         cont_law="LQR"
         time.sleep(3)
         # Initialize ROS node for real position and control
+        # rospy.init_node('gazebo_robot_position_listener', anonymous=True)
         rospy.init_node('jackal_controller')
         at_goal=False
         rospy.set_param("at_goal",at_goal)
         rate = rospy.Rate(10)  # Adjust the rate as per your requirement
         
+        # while not at_goal:
         counter=0
         while not rospy.is_shutdown():
+             # Subscribe to the model_states topic
+            rospy.Subscriber('/gazebo/model_states', ModelStates, model_states_callback)
+            # counter+=1
             controller = control_callback(cont_law)
             rate.sleep()
             at_goal = rospy.get_param("at_goal")
+            # print(at_goal)
+            # if at_goal==True and counter>100: break
             if at_goal==True:
                 counter+=1
                 if counter>10: 
