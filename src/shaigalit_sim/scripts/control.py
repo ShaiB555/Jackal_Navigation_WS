@@ -38,29 +38,6 @@ def control_callback(cont_law):
     max_v=2
     max_w=4
 
-    #Getting the real robot position from Gazebo
-    model_coordinates = rospy.ServiceProxy('/gazebo/get_model_state', GetModelState)
-    robot_pose = model_coordinates('jackal', 'Models.jackal').pose
-    x_real_vec=rospy.get_param("x_real_vec",[[0.0],[0.0],[0.0]])
-    x = robot_pose.position.x
-    y = robot_pose.position.y
-    # Extract orientation as a quaternion
-    quaternion = (
-        robot_pose.orientation.x,
-        robot_pose.orientation.y,
-        robot_pose.orientation.z,
-        robot_pose.orientation.w
-    )
-    # Convert quaternion to Euler angles
-    euler = tf.transformations.euler_from_quaternion(quaternion)
-    roll, pitch, yaw = euler
-    #Appending new state to saved vector
-    x_real = [[x], [y], [yaw]]
-    # print(x_real)
-    x_real_vec=np.hstack((x_real_vec,x_real))
-    x_real_vec=x_real_vec.tolist()
-    rospy.set_param("x_real_vec",x_real_vec)
-
     #Calculating the time increment from the last iteration to the current time, dt:
     current_time = time.time()
     last_time=rospy.get_param("cont_last_time",0)

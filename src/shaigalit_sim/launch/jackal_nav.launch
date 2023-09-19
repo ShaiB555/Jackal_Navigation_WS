@@ -6,7 +6,11 @@
 
   <!-- Delay node for 5 seconds -->
   <node name="delay_node" pkg="std_msgs" type="sleep" args="100" output="screen" />
-  
+
+
+  <!-- Run real_pos.py -->
+  <node name="real_pos" pkg="shaigalit_sim" type="real_pos.py" output="screen" />
+
   <!-- Run laser_sub.py -->
   <node name="laser_sub" pkg="shaigalit_sim" type="laser_sub.py" output="screen" />
 
@@ -14,5 +18,7 @@
   <node name="control" pkg="shaigalit_sim" type="control.py" output="screen">
     <!-- <param name="x_d" type="string" value="[[1.0],[2.0],[3.0]]" /> -->
     <!-- <param name="x_d" type="string" value="$(arg x_d)" /> -->
+  
   </node>
+  
 </launch>
