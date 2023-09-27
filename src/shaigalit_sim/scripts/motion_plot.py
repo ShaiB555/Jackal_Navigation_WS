@@ -5,7 +5,15 @@ from matplotlib import pyplot as plt
 def remove_first_column(matrix):
     return [row[1:] for row in matrix]
 
+def extract_first_elements(arr, m):
+    if m <= 0:
+        return []  # Return an empty list if m is not a positive integer
+
+    return [arr[i] for i in range(0, len(arr), m)]
+
 if __name__ == '__main__':
+
+    print("START")
 
     # Specify the path to the CSV file
     path_real="/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/Real_Pos/real.txt"
@@ -35,6 +43,9 @@ if __name__ == '__main__':
                 except ValueError:
                     # Handle any parsing errors
                     print(f"Skipping line: {line}")
+
+
+    print("MIDDLE")
 
     # Now, current_time_list, x_list, y_list, and yaw_list contain the extracted data
     # You can use these lists as needed in your code
@@ -69,26 +80,51 @@ if __name__ == '__main__':
     # Now, current_time_list, x_list, y_list, and yaw_list contain the extracted data
     # You can use these lists as needed in your code
    
+    print("END")
     x_est_list=[[est_x_list],[est_y_list],[est_yaw_list]]
     
-    est_time_list=est_time_list[1:]
+    # est_time_list=est_time_list[1:]
     est_time_list=np.array(est_time_list)-est_time_list[0]
-    real_time_list=real_time_list[1:]
+    # real_time_list=real_time_list[1:]
     real_time_list=np.array(real_time_list)-real_time_list[0]
-    plt.figure()
     colors_est=["r-","g-","b-"]
     colors_real=["r--","g--","b--"]
-    # print("REAL")
-    # print(np.size(x_real_vec))
-    # print("EST")
-    # print(np.size(x_est_vec)) /// [:len(x_real_vec[i])]
-    for i in range(3):
-        plt.plot(real_time_list[:len(x_real_list[i])],x_real_list[i],colors_real[i])
-        plt.plot(est_time_list[:len(x_est_list[i])],x_est_list[i],colors_est[i])
+    plt.figure()
+    for j in range(3):
+        plt.plot(real_time_list,x_real_list[j][0][:],colors_real[j])
+        plt.plot(est_time_list,x_est_list[j][0][:],colors_est[j])
     plt.xlabel('Time [sec]')
+    plt.legend(["X_real [m]","X_est [m]","Y_real [m]", "Y_est [m]","Phi_real [rad]","Phi_est [rad]"])
     # plt.legend(["Estimated X Position [m]","Estimated Y Position [m]","Estimated Orientation [rad]"])
+    plt.ylabel("State Vector Value")
     plt.grid()
     plt.show()
 
-    #World map + XY motion
-    
+
+    #error plot
+    plt.figure()
+    # x_est_list=remove_first_column(x_est_list)
+    error=np.array(x_est_list)-np.array(x_real_list)
+    error.tolist()
+    for j in range(3):
+        plt.plot(real_time_list,error[j][0][:],colors_est[j])
+    plt.xlabel('Time [sec]')
+    plt.legend(["X [m]","Y [m]","Phi [rad]"])
+    # plt.legend(["Estimated X Position [m]","Estimated Y Position [m]","Estimated Orientation [rad]"])
+    plt.ylabel("Estimation Error")
+    plt.grid()
+    plt.show()
+
+    #Control error plot
+    plt.figure()
+    x_d = [[3.0], [3.0], [0.0]]
+    # x_d=np.array(rospy.get_param("x_d",x_d_init))
+    for j in range(3):
+        plt.plot(real_time_list,np.array(x_real_list[j][0][:])-x_d[j][:],colors_real[j])
+        plt.plot(est_time_list,np.array(x_est_list[j][0][:])-x_d[j][:],colors_est[j])
+    plt.xlabel('Time [sec]')
+    plt.legend(["X_real [m]","X_est [m]","Y_real [m]", "Y_est [m]","Phi_real [rad]","Phi_est [rad]"])
+    # plt.legend(["Estimated X Position [m]","Estimated Y Position [m]","Estimated Orientation [rad]"])
+    plt.ylabel("Control Error")
+    plt.grid()
+    plt.show()

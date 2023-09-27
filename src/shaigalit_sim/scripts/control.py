@@ -240,11 +240,11 @@ def control_callback(cont_law):
     #Avoiding obstacles
     collision_dist=rospy.get_param("collision_dist",100000000*[1,1])
     Kc=0.5
-    if v>0 and abs(collision_dist[0])<0.5:
+    if v>0 and abs(collision_dist[0])<1:
         v=0.001*v
         print("OBSTACLE DETECTED!")
         w=Kc/(collision_dist[0]+0.000001)
-    if v<0 and abs(collision_dist[1])<0.5:
+    if v<0 and abs(collision_dist[1])<1:
         v=0.001*v
         print("OBSTACLE DETECTED!")
         w=Kc/(collision_dist[1]+0.000001)
@@ -268,12 +268,13 @@ if __name__ == '__main__':
     try:
 
         #Control parameters
-        cont_law="LQR"
+        cont_law="MPC"
         time.sleep(3)
         # Initialize ROS node for real position and control
         rospy.init_node('jackal_controller')
         at_goal=False
         rospy.set_param("at_goal",at_goal)
+        rospy.set_param("end_sim",False)
         rate = rospy.Rate(10)  # Adjust the rate as per your requirement
         
         counter=0
@@ -283,7 +284,8 @@ if __name__ == '__main__':
             at_goal = rospy.get_param("at_goal")
             if at_goal==True:
                 counter+=1
-                if counter>10: 
+                if counter>10:
+                    rospy.set_param("end_sim",True) 
                     print("GOAL IS REACHED, TIME TO PARTY :)")
                     break
 

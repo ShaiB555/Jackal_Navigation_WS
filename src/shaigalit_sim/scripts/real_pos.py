@@ -18,6 +18,7 @@ def model_states_callback(data):
     # Find the index of 'jackal' in the model names
     try:
         jackal_index = data.name.index('jackal')
+        x_est=rospy.get_param("x_est",[[0.0],[0.0],[0.0]])
     except ValueError:
         rospy.logwarn("Jackal model not found in ModelStates message.")
         return
@@ -49,17 +50,19 @@ def model_states_callback(data):
         jackal_pose.position.y,
         yaw
     )
-    # Open the file in append mode and save the data
-    name="real.txt"
-    path="/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/Real_Pos/"+name
-    with open(path, "a") as file:
-        file.write(data_to_save)
+
+    end_sim=rospy.get_param("end_sim",False) 
+    if end_sim==False:
+        # Open the file in append mode and save the data
+        name="real.txt"
+        path="/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/Real_Pos/"+name
+        with open(path, "a") as file:
+            file.write(data_to_save)
 
 
     #Now getting the estimated position and time
 
-    current_time=time.time()
-    x_est=rospy.get_param("x_est",[[0.0],[0.0],[0.0]])
+
     x=x_est[0][0]
     y=x_est[1][0]
     yaw=x_est[2][0]
@@ -69,11 +72,15 @@ def model_states_callback(data):
         y,
         yaw,
     )
-    # Open the file in append mode and save the data
-    name="est.txt"
-    path="/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/Real_Pos/"+name
-    with open(path, "a") as file:
-        file.write(data_to_save)
+
+    end_sim=rospy.get_param("end_sim",False) 
+    if end_sim==False:
+
+        # Open the file in append mode and save the data
+        name="est.txt"
+        path="/home/shai/Jackal_Navigation_WS/src/shaigalit_sim/Real_Pos/"+name
+        with open(path, "a") as file:
+            file.write(data_to_save)
 
     # # Print the 'jackal.pose' parameter
     # print("Jackal Pose:")
